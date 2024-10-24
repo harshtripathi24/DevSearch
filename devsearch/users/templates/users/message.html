@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<!-- Main Section -->
+<main class="messagePage my-xl">
+  <div class="content-box">
+    <div class="message">
+      <a class="backButton" href="{% url 'inbox' %}"><i class="fa fa-arrow-left"></i></a>
+      <h2 class="message__subject">{{message.subject}}</h4>
+        {% if message.sender %}
+        <a href="{% url 'user-profile' message.sender.id  %}" class="message__author">
+         <img class="avatar avatar--sm" src="{{message.sender.profile_image.url }}" alt="image" />
+        {{message.name}}
+        <p class="message__date">{{message.created}}</p>
+        </a>
+        {% else %}
+        <p class="message__author">{{message.name}}</p>
+        {% endif %}
+        
+        <div class="message__body">{{message.body|linebreaksbr}}</div>
+    </div>
+  </div>
+</main>
+{% endblock content %}
