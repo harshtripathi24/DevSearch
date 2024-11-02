@@ -10,7 +10,7 @@
       <h2 class="message__subject">{{message.subject}}</h4>
         {% if message.sender %}
         <a href="{% url 'user-profile' message.sender.id  %}" class="message__author">
-         <img class="avatar avatar--sm" src="{{message.sender.profile_image.url }}" alt="image" />
+         <img class="avatar avatar--sm" src="{{message.sender.ImageURL }}" alt="image" />
         {{message.name}}
         <p class="message__date">{{message.created}}</p>
         </a>
